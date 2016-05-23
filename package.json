@@ -46,5 +46,21 @@
     "gulp-cached": "^1.1.0",
     "gulp-concat-util": "^0.5.5",
     "gulp-sourcemaps": "^1.6.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diorahman/neymo.git"
+  },
+  "keywords": [
+    "nexmo",
+    "sms",
+    "verify"
+  ],
+  "bugs": {
+    "url": "https://github.com/diorahman/neymo/issues"
+  },
+  "homepage": "https://github.com/diorahman/neymo#readme"
 }
