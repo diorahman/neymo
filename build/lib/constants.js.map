@@ -1,0 +1,1 @@
+{"version":3,"sources":["constants.js"],"names":[],"mappings":";;;;;kBAAe;AACX,iBAAa;AACT,cAAM,gBADG;AAET,cAAM;AAFG;AADF,C","file":"constants.js","sourcesContent":["export default {\n    TextMessage: {\n        host: 'rest.nexmo.com',\n        path: '/sms/json'\n    }\n};\n"],"sourceRoot":"/Users/diorahman/Experiments/hooq/src/luigi/neymo/lib"}
