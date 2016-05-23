@@ -103,6 +103,7 @@ var Neymo = function () {
             var body = _ref.body;
             var response = _ref.response;
 
+            // FIXME; transform to a sensible object
             return body;
         }
     }]);
