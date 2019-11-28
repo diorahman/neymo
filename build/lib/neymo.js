@@ -49,6 +49,7 @@ var Neymo = function () {
             api_secret: secret
         };
         this.url = url;
+        options.push({ retries: 0 });
         this.client = new _blackadder2.default(options);
     }
 
