@@ -12,7 +12,7 @@ var _neymo2 = _interopRequireDefault(_neymo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -43,21 +43,19 @@ var Sms = function (_Neymo) {
      * @param {String} secret
      * @param [Object] options
      */
-
     function Sms(key, secret) {
-        var _ref = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-        var _ref$statusReportReq = _ref.statusReportReq;
-        var statusReportReq = _ref$statusReportReq === undefined ? 1 : _ref$statusReportReq;
-        var _ref$ttl = _ref.ttl;
-        var ttl = _ref$ttl === undefined ? 1000 * 30 : _ref$ttl;
-        var messageClass = _ref.messageClass;
-        var callback = _ref.callback;
-        var validity = _ref.validity;
+        var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+            _ref$statusReportReq = _ref.statusReportReq,
+            statusReportReq = _ref$statusReportReq === undefined ? 1 : _ref$statusReportReq,
+            _ref$ttl = _ref.ttl,
+            ttl = _ref$ttl === undefined ? 1000 * 30 : _ref$ttl,
+            messageClass = _ref.messageClass,
+            callback = _ref.callback,
+            validity = _ref.validity;
 
         _classCallCheck(this, Sms);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Sms).call(this, key, secret, 'https://rest.nexmo.com/sms/json'));
+        var _this = _possibleConstructorReturn(this, (Sms.__proto__ || Object.getPrototypeOf(Sms)).call(this, key, secret, 'https://rest.nexmo.com/sms/json'));
 
         _this.options = {
             statusReportReq: statusReportReq,
@@ -81,8 +79,8 @@ var Sms = function (_Neymo) {
     _createClass(Sms, [{
         key: 'sendText',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(from, to, text) {
-                var isUnicode = arguments.length <= 3 || arguments[3] === undefined ? false : arguments[3];
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(from, to, text) {
+                var isUnicode = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -105,8 +103,8 @@ var Sms = function (_Neymo) {
                 }, _callee, this);
             }));
 
-            function sendText(_x2, _x3, _x4, _x5) {
-                return ref.apply(this, arguments);
+            function sendText(_x2, _x3, _x4) {
+                return _ref2.apply(this, arguments);
             }
 
             return sendText;
@@ -123,7 +121,7 @@ var Sms = function (_Neymo) {
     }, {
         key: 'sendUnicode',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(from, to, unicodeText) {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(from, to, unicodeText) {
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
@@ -142,8 +140,8 @@ var Sms = function (_Neymo) {
                 }, _callee2, this);
             }));
 
-            function sendUnicode(_x7, _x8, _x9) {
-                return ref.apply(this, arguments);
+            function sendUnicode(_x6, _x7, _x8) {
+                return _ref3.apply(this, arguments);
             }
 
             return sendUnicode;
@@ -160,11 +158,11 @@ var Sms = function (_Neymo) {
     }, {
         key: 'sendBinary',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(from, to, body) {
-                var _ref2 = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(from, to, body) {
+                var _ref5 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
+                    udh = _ref5.udh,
+                    protocolId = _ref5.protocolId;
 
-                var udh = _ref2.udh;
-                var protocolId = _ref2.protocolId;
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -187,8 +185,8 @@ var Sms = function (_Neymo) {
                 }, _callee3, this);
             }));
 
-            function sendBinary(_x10, _x11, _x12, _x13) {
-                return ref.apply(this, arguments);
+            function sendBinary(_x9, _x10, _x11) {
+                return _ref4.apply(this, arguments);
             }
 
             return sendBinary;
@@ -205,7 +203,7 @@ var Sms = function (_Neymo) {
     }, {
         key: 'sendvCal',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(from, to, vcal) {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(from, to, vcal) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -228,8 +226,8 @@ var Sms = function (_Neymo) {
                 }, _callee4, this);
             }));
 
-            function sendvCal(_x15, _x16, _x17) {
-                return ref.apply(this, arguments);
+            function sendvCal(_x13, _x14, _x15) {
+                return _ref6.apply(this, arguments);
             }
 
             return sendvCal;
@@ -246,7 +244,7 @@ var Sms = function (_Neymo) {
     }, {
         key: 'sendvCard',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee5(from, to, vcard) {
+            var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(from, to, vcard) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee5$(_context5) {
                     while (1) {
@@ -269,8 +267,8 @@ var Sms = function (_Neymo) {
                 }, _callee5, this);
             }));
 
-            function sendvCard(_x18, _x19, _x20) {
-                return ref.apply(this, arguments);
+            function sendvCard(_x16, _x17, _x18) {
+                return _ref7.apply(this, arguments);
             }
 
             return sendvCard;
@@ -288,9 +286,9 @@ var Sms = function (_Neymo) {
     }, {
         key: 'sendWAPPush',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee6(from, to) {
-                var title = arguments.length <= 2 || arguments[2] === undefined ? 'HOOQ' : arguments[2];
-                var url = arguments.length <= 3 || arguments[3] === undefined ? 'https://www.hooq.tv' : arguments[3];
+            var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(from, to) {
+                var title = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'HOOQ';
+                var url = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'https://www.hooq.tv';
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee6$(_context6) {
                     while (1) {
@@ -313,8 +311,8 @@ var Sms = function (_Neymo) {
                 }, _callee6, this);
             }));
 
-            function sendWAPPush(_x21, _x22, _x23, _x24) {
-                return ref.apply(this, arguments);
+            function sendWAPPush(_x19, _x20) {
+                return _ref8.apply(this, arguments);
             }
 
             return sendWAPPush;

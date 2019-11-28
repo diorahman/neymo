@@ -12,7 +12,7 @@ var _neymo2 = _interopRequireDefault(_neymo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -22,7 +22,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 /** Class representing Verify */
-
 var Verify = function (_Neymo) {
     _inherits(Verify, _Neymo);
 
@@ -33,28 +32,26 @@ var Verify = function (_Neymo) {
      * @param {String} secret
      * @param [Object] options
      */
-
     function Verify(key, secret) {
-        var _ref = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-        var _ref$brand = _ref.brand;
-        var brand = _ref$brand === undefined ? 'HOOQ' : _ref$brand;
-        var _ref$senderId = _ref.senderId;
-        var senderId = _ref$senderId === undefined ? 'HOOQ' : _ref$senderId;
-        var _ref$codeLength = _ref.codeLength;
-        var codeLength = _ref$codeLength === undefined ? 6 : _ref$codeLength;
-        var _ref$lg = _ref.lg;
-        var lg = _ref$lg === undefined ? 'en-us' : _ref$lg;
-        var _ref$require_type = _ref.require_type;
-        var require_type = _ref$require_type === undefined ? 'Mobile' : _ref$require_type;
-        var _ref$pin_expiry = _ref.pin_expiry;
-        var pin_expiry = _ref$pin_expiry === undefined ? 300 : _ref$pin_expiry;
-        var _ref$next_event_wait = _ref.next_event_wait;
-        var next_event_wait = _ref$next_event_wait === undefined ? 900 : _ref$next_event_wait;
+        var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+            _ref$brand = _ref.brand,
+            brand = _ref$brand === undefined ? 'HOOQ' : _ref$brand,
+            _ref$senderId = _ref.senderId,
+            senderId = _ref$senderId === undefined ? 'HOOQ' : _ref$senderId,
+            _ref$codeLength = _ref.codeLength,
+            codeLength = _ref$codeLength === undefined ? 6 : _ref$codeLength,
+            _ref$lg = _ref.lg,
+            lg = _ref$lg === undefined ? 'en-us' : _ref$lg,
+            _ref$require_type = _ref.require_type,
+            require_type = _ref$require_type === undefined ? 'Mobile' : _ref$require_type,
+            _ref$pin_expiry = _ref.pin_expiry,
+            pin_expiry = _ref$pin_expiry === undefined ? 300 : _ref$pin_expiry,
+            _ref$next_event_wait = _ref.next_event_wait,
+            next_event_wait = _ref$next_event_wait === undefined ? 900 : _ref$next_event_wait;
 
         _classCallCheck(this, Verify);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Verify).call(this, key, secret, 'https://api.nexmo.com/verify/json'));
+        var _this = _possibleConstructorReturn(this, (Verify.__proto__ || Object.getPrototypeOf(Verify)).call(this, key, secret, 'https://api.nexmo.com/verify/json'));
 
         _this.options = {
             brand: brand,
@@ -71,7 +68,7 @@ var Verify = function (_Neymo) {
     _createClass(Verify, [{
         key: 'request',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(number) {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(number) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -95,7 +92,7 @@ var Verify = function (_Neymo) {
             }));
 
             function request(_x2) {
-                return ref.apply(this, arguments);
+                return _ref2.apply(this, arguments);
             }
 
             return request;
@@ -103,7 +100,7 @@ var Verify = function (_Neymo) {
     }, {
         key: 'check',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(request_id, code) {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(request_id, code) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -128,7 +125,7 @@ var Verify = function (_Neymo) {
             }));
 
             function check(_x3, _x4) {
-                return ref.apply(this, arguments);
+                return _ref3.apply(this, arguments);
             }
 
             return check;
@@ -136,7 +133,7 @@ var Verify = function (_Neymo) {
     }, {
         key: 'search',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(request_id) {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(request_id) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -161,7 +158,7 @@ var Verify = function (_Neymo) {
             }));
 
             function search(_x5) {
-                return ref.apply(this, arguments);
+                return _ref4.apply(this, arguments);
             }
 
             return search;
@@ -169,7 +166,7 @@ var Verify = function (_Neymo) {
     }, {
         key: 'next',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(request_id) {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(request_id) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -193,7 +190,7 @@ var Verify = function (_Neymo) {
             }));
 
             function next(_x6) {
-                return ref.apply(this, arguments);
+                return _ref5.apply(this, arguments);
             }
 
             return next;
@@ -201,7 +198,7 @@ var Verify = function (_Neymo) {
     }, {
         key: 'cancel',
         value: function () {
-            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee5(request_id) {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(request_id) {
                 var type, payload;
                 return regeneratorRuntime.wrap(function _callee5$(_context5) {
                     while (1) {
@@ -225,7 +222,7 @@ var Verify = function (_Neymo) {
             }));
 
             function cancel(_x7) {
-                return ref.apply(this, arguments);
+                return _ref6.apply(this, arguments);
             }
 
             return cancel;

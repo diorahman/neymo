@@ -36,14 +36,13 @@ function _extendableBuiltin(cls) {
 }
 
 /** The base extensible error class */
-
 var BaseError = function (_extendableBuiltin2) {
     _inherits(BaseError, _extendableBuiltin2);
 
     function BaseError(message) {
         _classCallCheck(this, BaseError);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BaseError).call(this, message));
+        var _this = _possibleConstructorReturn(this, (BaseError.__proto__ || Object.getPrototypeOf(BaseError)).call(this, message));
 
         _this.name = _this.constructor.name;
         return _this;
@@ -59,11 +58,11 @@ var NeymoError = function (_BaseError) {
     _inherits(NeymoError, _BaseError);
 
     function NeymoError(message, code, ref, to) {
-        var source = arguments.length <= 4 || arguments[4] === undefined ? 'Neymo' : arguments[4];
+        var source = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Neymo';
 
         _classCallCheck(this, NeymoError);
 
-        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(NeymoError).call(this, message + ' (' + code + ' of ' + source + ')'));
+        var _this2 = _possibleConstructorReturn(this, (NeymoError.__proto__ || Object.getPrototypeOf(NeymoError)).call(this, message + ' (' + code + ' of ' + source + ')'));
         // Hence we know which place is failing by just reading the message
 
 
