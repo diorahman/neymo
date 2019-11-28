@@ -35,8 +35,6 @@ var Neymo = function () {
      * @param {String} name - The name.
      */
     function Neymo(key, secret, url) {
-        var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-
         _classCallCheck(this, Neymo);
 
         if (!key || !secret) {
@@ -47,8 +45,7 @@ var Neymo = function () {
             api_secret: secret
         };
         this.url = url;
-        options.push({ retries: 0 });
-        this.client = new _blackadder2.default(options);
+        this.client = new _blackadder2.default({ retries: 0 });
     }
 
     _createClass(Neymo, [{
