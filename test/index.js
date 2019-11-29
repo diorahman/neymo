@@ -7,5 +7,6 @@ test('Yay!', async (t) => {
         verify = new Verify('key', 'secret');
     t.truthy(sms);
     t.truthy(verify);
+    t.truthy(sms['sendText']);
     t.pass();
 });
