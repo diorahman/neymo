@@ -9,9 +9,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _error = require('./error');
 
-var _blackadder = require('blackadder');
+var _tarik = require('tarik');
 
-var _blackadder2 = _interopRequireDefault(_blackadder);
+var _tarik2 = _interopRequireDefault(_tarik);
 
 var _changeCase = require('change-case');
 
@@ -45,7 +45,7 @@ var Neymo = function () {
             api_secret: secret
         };
         this.url = url;
-        this.client = new _blackadder2.default({ retries: 0 });
+        this.client = _tarik2.default;
     }
 
     _createClass(Neymo, [{
